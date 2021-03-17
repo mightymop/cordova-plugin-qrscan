@@ -1,0 +1,47 @@
+{
+  "_from": "git+https://github.com/mightymop/cordova-plugin-qrscan.git",
+  "_id": "cordova-plugin-qrscan@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-qrscan",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/mightymop/cordova-plugin-qrscan.git",
+    "rawSpec": "https://github.com/mightymop/cordova-plugin-qrscan.git",
+    "saveSpec": "git+https://github.com/mightymop/cordova-plugin-qrscan.git",
+    "fetchSpec": "https://github.com/mightymop/cordova-plugin-qrscan.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/mightymop/cordova-plugin-qrscan.git",
+  "_spec": "https://github.com/mightymop/cordova-plugin-qrscan.git",
+  "_where": "d:\\workspace\\vernehmung2\\DummyTypeScriptCordova",
+  "author": "",
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-qrscan",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "cordova plugin add https://github.com/mightymop/cordova-plugin-qrscan.git\r ### 2. For Typescript add following code to main ts file: \r /// &lt;reference types=\"cordova-plugin-qrscan\" /&gt;<br/>\r ### 3. Usage:\r ```\r window.qrscan.scan(); ",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "ISC",
+  "name": "cordova-plugin-qrscan",
+  "types": "./types/index.d.ts",
+  "version": "1.0.0"
+}
