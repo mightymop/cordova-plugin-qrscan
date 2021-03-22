@@ -19,7 +19,6 @@
   ],
   "_resolved": "git+https://github.com/mightymop/cordova-plugin-qrscan.git",
   "_spec": "https://github.com/mightymop/cordova-plugin-qrscan.git",
-  "_where": "d:\\workspace\\vernehmung2\\DummyTypeScriptCordova",
   "author": "",
   "bundleDependencies": false,
   "cordova": {
