@@ -3,31 +3,31 @@
         id="cordova-plugin-qrscan"
         version="1.0.0">
 
-  <name>qrscan</name>
+	<name>qrscan</name>
 
-  <engines>
-    <engine name="cordova" version=">=3.4.0"/>
-  </engines>
+	<engines>
+		<engine name="cordova" version=">=3.4.0"/>
+	</engines>
 
-  <asset src="www/QRScan.js" target="js/QRScan.js"/>
+	<asset src="www/QRScan.js" target="js/QRScan.js"/>
 
-  <js-module src="www/QRScan.js" name="QRScan">
-     <clobbers target="qrscan" />
-  </js-module>
+	<js-module src="www/QRScan.js" name="QRScan">
+		<clobbers target="qrscan" />
+	</js-module>
 
-  <platform name="android">
-	<framework src="com.journeyapps:zxing-android-embedded:3.4.0@aar" />
-	<framework src="com.google.zxing:core:3.4.0" />
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="QRScan">
-        <param name="android-package" value="de.mopsdom.qrscan.QRScan"/>
-		<!--param name="onload" value="true"/-->
-      </feature>
-    </config-file>
+	<platform name="android">
+		<framework src="com.journeyapps:zxing-android-embedded:4.3.0@aar" />
+		<framework src="com.google.zxing:core:3.4.1" />
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="QRScan">
+				<param name="android-package" value="de.mopsdom.qrscan.QRScan"/>
+				<!--param name="onload" value="true"/-->
+			</feature>
+		</config-file>
 
-    <source-file src="src/android/QRScan.java" target-dir="src/de/mopsdom/qrscan"/>
+		<source-file src="src/android/QRScan.java" target-dir="src/de/mopsdom/qrscan"/>
 
-  </platform>
+	</platform>
 
 
 </plugin>
