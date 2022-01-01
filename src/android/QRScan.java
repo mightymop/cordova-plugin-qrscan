@@ -29,6 +29,7 @@ public class QRScan extends CordovaPlugin {
             PluginResult presult = null;
             if (resultCode == cordova.getActivity().RESULT_OK)
             {
+                Log.d("cordova-plugin-qrscan","RESULT_OK");
                 try
                 {
                      Iterator<String> keys = data.getExtras().keySet().iterator();
@@ -47,7 +48,7 @@ public class QRScan extends CordovaPlugin {
                             }
                      }
 
-                     Log.e("cordova-plugin-qrscan","RESULT: "+resultjson.toString());
+                     Log.d("cordova-plugin-qrscan","RESULT: "+resultjson.toString());
                      presult = new PluginResult(PluginResult.Status.OK, resultjson.toString());
                      presult.setKeepCallback(true);
                      callbackContext.sendPluginResult(presult);
@@ -63,11 +64,14 @@ public class QRScan extends CordovaPlugin {
 
             if (presult==null)
             {
+                Log.d("cordova-plugin-qrscan","presult==null");
                 Log.e("cordova-plugin-qrscan","RESULT = CANCELD");
                 presult = new PluginResult(PluginResult.Status.ERROR, "no data" );
                 presult.setKeepCallback(true);
                 callbackContext.sendPluginResult(presult);
             }
+
+            return;
         }
 
         super.onActivityResult(requestCode, resultCode, data);
@@ -124,13 +128,13 @@ public class QRScan extends CordovaPlugin {
                 scanQr.setPrompt(prompt);
                 scanQr.setBarcodeImageEnabled(image);
 
+                Log.d("cordova-plugin-qrscan","Start QR-Code Scanner");
                 cordova.startActivityForResult(this, scanQr.createScanIntent(),REQUEST_CODE);
 
             } catch (Throwable e) {
                 Log.e("cordova-plugin-qrscan",e.getMessage(),e);
                 callbackContext.error(e.getMessage());
             }
-
 
             return true;
         }
