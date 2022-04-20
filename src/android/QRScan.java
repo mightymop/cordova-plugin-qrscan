@@ -22,56 +22,46 @@ public class QRScan extends CordovaPlugin {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("cordova-plugin-qrscan","onActivityResult");
+       Log.d("cordova-plugin-qrscan", "onActivityResult requestCode=" + String.valueOf(requestCode) + "  resultCode="
+                + String.valueOf(resultCode));
 
-        if(REQUEST_CODE==requestCode)
-        {
+        if (REQUEST_CODE == requestCode) {
             PluginResult presult = null;
-            if (resultCode == cordova.getActivity().RESULT_OK)
-            {
-                Log.d("cordova-plugin-qrscan","RESULT_OK");
-                try
-                {
-                     Iterator<String> keys = data.getExtras().keySet().iterator();
-                     JSONObject resultjson = new JSONObject();
+            if (resultCode == cordova.getActivity().RESULT_OK) {
+                Log.d("cordova-plugin-qrscan", "RESULT_OK");
+                try {
+                    Iterator<String> keys = data.getExtras().keySet().iterator();
+                    JSONObject resultjson = new JSONObject();
 
-                     while(keys.hasNext()) {
-                            String key = keys.next();
+                    while (keys.hasNext()) {
+                        String key = keys.next();
 
-                            try
-                            {
-                                resultjson.put(key, data.getExtras().get(key));
-                            }
-                            catch (Exception e)
-                            {
+                        try {
+                            resultjson.put(key, data.getExtras().get(key));
+                        } catch (Exception e) {
 
-                            }
-                     }
+                        }
+                    }
 
-                     Log.d("cordova-plugin-qrscan","RESULT: "+resultjson.toString());
-                     presult = new PluginResult(PluginResult.Status.OK, resultjson.toString());
-                     presult.setKeepCallback(true);
-                     callbackContext.sendPluginResult(presult);
-                }
-                catch (Exception e) {
-                    Log.e("cordova-plugin-qrscan",e.getMessage());
-                    presult = new PluginResult(PluginResult.Status.ERROR, e.getMessage() );
+                    Log.d("cordova-plugin-qrscan", "RESULT: " + resultjson.toString());
+                    presult = new PluginResult(PluginResult.Status.OK, resultjson.toString());
+                    presult.setKeepCallback(true);
+                    callbackContext.sendPluginResult(presult);
+
+                } catch (Exception e) {
+                    Log.e("cordova-plugin-qrscan", e.getMessage());
+                    presult = new PluginResult(PluginResult.Status.ERROR, e.getMessage());
                     presult.setKeepCallback(true);
                     callbackContext.sendPluginResult(presult);
                 }
 
-            }
-
-            if (presult==null)
-            {
-                Log.d("cordova-plugin-qrscan","presult==null");
-                Log.e("cordova-plugin-qrscan","RESULT = CANCELD");
-                presult = new PluginResult(PluginResult.Status.ERROR, "no data" );
+            } else {
+                Log.e("cordova-plugin-qrscan", "RESULT != RESULT_OK");
+                presult = new PluginResult(PluginResult.Status.NO_RESULT, "canceled");
                 presult.setKeepCallback(true);
                 callbackContext.sendPluginResult(presult);
             }
 
-            return;
         }
 
         super.onActivityResult(requestCode, resultCode, data);
